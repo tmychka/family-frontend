@@ -1,0 +1,14 @@
+.todo-app {
+    margin: 3rem auto 0 auto;
+    max-width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    background: url(https://img.freepik.com/free-photo/grunge-brick-wall-background_1048-11975.jpg?size=338&ext=jpg&ga=GA1.2.2018124227.1613659804);
+}
+
+.top-panel {
+    margin: 1rem 0;
+}
