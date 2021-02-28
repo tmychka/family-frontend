@@ -10,7 +10,7 @@ import './App.css';
 
 export default class App extends Component {
 
-  maxId = 100;     
+  maxId = 100;
 
     state = {
        TodoData: [
@@ -19,7 +19,7 @@ export default class App extends Component {
            this.createTodoItem('Have a lunch')
                      ],
        term: '',
-       filter: 'all' // active, all, done  
+       filter: 'all' // active, all, done
      };
 
      createTodoItem(label) {
@@ -34,27 +34,41 @@ export default class App extends Component {
 
     deleteItem = (id) => {
         this.setState(({ TodoData }) => {
-        const idx = TodoData.findIndex((el) => el.id == id) 
-           
-        const newArray = [
-            ...TodoData.splice(0, idx),
-            ...TodoData.splice(idx + 1)
-        ]; 
+            const idx = TodoData.findIndex((el) => el.id == id)
 
-        return {
-            TodoData: newArray
-         };
-    });
-};
-    
+            const newArray = [
+                ...TodoData.splice(0, idx),
+                ...TodoData.splice(idx + 1)
+            ];
+
+            return {
+                TodoData: newArray
+            };
+        });
+    };
+
+    doneItem = (id) => {
+        this.setState((prevState) => ({
+            TodoData: prevState.TodoData.map(item => {
+                if (item.id === id) {
+                    return {
+                        ...item,
+                        done: !item.done,
+                    }
+                }
+                return item
+            })
+        }))
+    }
+
      addItem = (text) => {
-        const newItem = this.createTodoItem(text);     
+        const newItem = this.createTodoItem(text);
 
         if (text.trim() == '') {
             return
          }
 
-        this.setState(({ TodoData }) => {   
+        this.setState(({ TodoData }) => {
            const newArr = [
               ...TodoData,
                  newItem
@@ -66,36 +80,36 @@ export default class App extends Component {
          });
      };
 
-     onSearchChange = (term) => {   
-         this.setState( { term } );         
-     };
+    onSearchChange = (term) => {
+        this.setState( { term } );
+    };
 
-     onFilterChange = (filter) => {
+    onFilterChange = (filter) => {
         this.setState( { filter } );
     };
 
 
-     search(items, term) {
-         if(term.length == 0) {
-            return items;
-         };
+    search(items, term) {
+        if(term.length == 0) {
+        return items;
+        };
 
        return items.filter((item) => {
             return item.label
                    .toLowerCase()
                    .indexOf(term.toLowerCase()) > -1;
         });
-     }  
+     }
 
     filter(items, filter) {
         switch(filter) {
-            case 'all': 
+            case 'all':
               return items;
             case 'active':
               return items.filter((item) => !item.done);
             case 'done':
               return items.filter((item) => item.done);
-            default: 
+            default:
               return items;
          };
      };
@@ -108,13 +122,15 @@ export default class App extends Component {
         return (
             <div className='todo-app'>
                  <AppHeader />
-                 <ItemAddForm onItemAdded={this.addItem} />    
-                 <ItemStatusFilter filter={filter} onFilterChange={this.onFilterChange} />                                                                                          
-            <div className='top-panel d-flex'>  
+                 <ItemAddForm onItemAdded={this.addItem} />
+                 <ItemStatusFilter filter={filter} onFilterChange={this.onFilterChange} />
+            <div className='top-panel d-flex'>
             </div>
-                 <TodoList 
+                 <TodoList
                  todos={visibleItems}
-                 onDeleted={ this.deleteItem } />
+                 onDeleted={ this.deleteItem }
+                 onDone={ this.doneItem }
+                />
                  <SearchPanel onSearchChange={this.onSearchChange} />
             </div>
          );
