@@ -9,25 +9,25 @@ export default class TodoListItem extends Component {
     render() {
        const { label, onDeleted, done } = this.props;
 
-        let classNames = 'todo-list-item';
+       let classNames = 'todo-list-item';
 
-        if(done) {
-           classNames += ' done';
-        }
+       if(done) {
+         classNames += ' done';
+       }
 
-         return (
+        return (
            <span className={classNames}>
-              <span
-                  className='todo-list-item-label'
-                  onClick={ this.onLabelClick }>
-                  {label}
-              </span>
+             <span
+                className='todo-list-item-label'
+                onClick={ this.onLabelClick }>
+                {label}
+             </span>
 
-              <button type='button'
-                      className='btn btn-outline-danger btn-sm float-right'
-                      onClick={onDeleted}>
-                   <i className='fa fa-trash-o' />
-              </button>
+            <button type='button'
+                    className='btn btn-outline-danger btn-sm float-right'
+                    onClick={onDeleted}>
+                 <i className='fa fa-trash-o' />
+               </button>
             </span>
          );
       };

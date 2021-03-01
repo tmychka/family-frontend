@@ -6,12 +6,12 @@ export default class ItemAddForm extends Component {
 
     state = {
         label: ''
-    }
+    };
 
     onLabelChange = (e) => { 
         this.setState({
             label: e.target.value 
-      });
+       });
     };
 
     onSubmit = (e) => {
@@ -26,20 +26,16 @@ export default class ItemAddForm extends Component {
       
          return (
              <form className='item-add-form d-flex' onSubmit={this.onSubmit}>
-                
-                 <input type='text'
-                  className='form-control'
-                  onChange={this.onLabelChange}
-                  placeholder='...what do you want'
-                  value={this.state.label}
-                   />
-             </form>
-             
-             
+
+                <input type='text'
+                       className='form-control'
+                       onChange={this.onLabelChange}
+                       placeholder='...text'
+                       value={this.state.label}
+                     />
+             </form>    
          );
-         
      };
-     
 };
 
 

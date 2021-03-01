@@ -6,7 +6,6 @@ const AppHeader = () => {
       <div className='app-header d-flex'>
           <h1>My todoshka</h1> 
       </div>
-        
    );
 };
 

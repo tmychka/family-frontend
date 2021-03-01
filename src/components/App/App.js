@@ -17,7 +17,7 @@ export default class App extends Component {
            this.createTodoItem('Drink Coffee'),
            this.createTodoItem('Make Awesome App'),
            this.createTodoItem('Have a lunch')
-                     ],
+            ],
        term: '',
        filter: 'all' // active, all, done
      };
@@ -28,17 +28,16 @@ export default class App extends Component {
              important: false,
              done: false,
              id: this.maxId++
+          }
+      }
 
-         }
-     }
-
-    deleteItem = (id) => {
+     deleteItem = (id) => {
         this.setState(({ TodoData }) => {
-            const idx = TodoData.findIndex((el) => el.id == id)
+            const idx = TodoData.findIndex((el) => el.id == id);
 
             const newArray = [
-                ...TodoData.splice(0, idx),
-                ...TodoData.splice(idx + 1)
+                ...TodoData.slice(0, idx),
+                ...TodoData.slice(idx + 1)
             ];
 
             return {
@@ -56,12 +55,12 @@ export default class App extends Component {
                         done: !item.done,
                     }
                 }
-                return item
-            })
+                 return item
+             })
         }))
     }
 
-     addItem = (text) => {
+    addItem = (text) => {
         const newItem = this.createTodoItem(text);
 
         if (text.trim() == '') {
@@ -74,8 +73,8 @@ export default class App extends Component {
                  newItem
             ];
 
-            return {
-                 TodoData: newArr
+           return {
+               TodoData: newArr
              };
          });
      };
@@ -91,15 +90,15 @@ export default class App extends Component {
 
     search(items, term) {
         if(term.length == 0) {
-        return items;
-        };
+          return items;
+    };
 
-       return items.filter((item) => {
-            return item.label
-                   .toLowerCase()
-                   .indexOf(term.toLowerCase()) > -1;
+    return items.filter((item) => {
+         return item.label
+                .toLowerCase()
+                .indexOf(term.toLowerCase()) > -1;
         });
-     }
+     };
 
     filter(items, filter) {
         switch(filter) {
@@ -118,7 +117,7 @@ export default class App extends Component {
          const { TodoData, term, filter } = this.state;
          const visibleItems = this.filter(
                               this.search(TodoData, term), filter);
-
+                              
         return (
             <div className='todo-app'>
                  <AppHeader />

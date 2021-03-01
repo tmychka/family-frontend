@@ -4,20 +4,18 @@ import './TodoList.css';
 
 const TodoList = ( { todos, onDeleted, onDone } ) => {
 
-   const elements = todos.map((item ) => {
-
+    const elements = todos.map((item) => {
     const { id, ...itemProps } = item;
 
     return (
-     <li key={id} className='list-group-item'>
-        <TodoListItem
-          { ...itemProps }
-          onDeleted={() => onDeleted(id)}
-          onDone={() => onDone(id)}
-         />
-    </li>
-
-  )
+      <li key={ id } className='list-group-item'>
+           <TodoListItem
+           { ...itemProps }
+           onDeleted={() => onDeleted(id)}
+           onDone={() => onDone(id)}
+          />
+      </li>
+   );
 });
 
     return (
@@ -27,5 +25,4 @@ const TodoList = ( { todos, onDeleted, onDone } ) => {
     );
  };
 
-
- export default TodoList;
+export default TodoList

@@ -1,5 +1,9 @@
 body {
-   background: rgb(135, 225, 241);
-   height: 100%;
+   background-image: url(./tima.png);
+   background-repeat: no-repeat;
+   background-size: 40%  90%;
+   background-position: top right;
    padding-bottom: 40px;
+   height: 100%;
+   background-color: rgba(0, 227, 243, 0.438)
 }
