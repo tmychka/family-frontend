@@ -1,0 +1,14 @@
+.todo-app {
+    margin: 2rem auto 0 auto;
+    max-width: 600px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+    background: url(https://img.freepik.com/free-vector/black-background-with-red-glowing-low-poly-mesh_1017-20215.jpg?size=626&ext=jpg&ga=GA1.2.2018124227.1613659804);
+}
+
+.top-panel {
+    margin: 1rem 0;
+}

@@ -1,0 +1,15 @@
+.search-input {
+    width: auto;
+}
+
+.input {
+    width: 100%; 
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    outline: none;
+    border: 0;
+    position: relative;
+    top: 15px;
+    padding: 3px;
+}
