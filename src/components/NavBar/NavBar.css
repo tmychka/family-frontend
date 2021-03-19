@@ -1,0 +1,36 @@
+.navbar-p {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;  
+   height: 60px;
+   background: url(https://t4.ftcdn.net/jpg/01/83/20/33/240_F_183203363_XhiLGHGGJdB37B0fISgv0tqnupxCzWEN.jpg);
+   padding-left: 42px;
+   padding-right: 42px;
+   cursor: pointer;
+}
+
+.navbar-c {
+    display: flex;
+    width: 100%;
+}
+
+
+
+.menu {
+  color: aliceblue;
+  transition: .2s;
+}
+
+.menu:hover,
+.home:hover {
+    background: rgba(255, 255, 255, 0.144);
+    border-radius: 5px;
+}
+
+.home {
+    position: relative;
+    left: 15px;
+    color: white;
+    transition: .2s;
+}

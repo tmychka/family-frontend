@@ -1,25 +1,29 @@
 .btn-group {
-   width: 100%;
+   width: 50%;
    height: 10px;
    line-height: 1;
-   margin-right: 132px;
-   text-align: center;
+   left: 271px;
    align-items: center;
-   top: 10px;
+   top: 50px;
 }
 
 .btn-botton {
-   background: rgb(255, 136, 0);
+   background: rgb(6, 34, 160);
 }
 
 .botton {
-   color: rgb(255, 255, 255);
-   border: 1px solid rgb(136, 132, 132);
+   color: rgb(182, 182, 182);
+   border: 1px solid rgb(139, 139, 139);
    font-size: 15px;
-   font-weight: 700;
+   font-weight: 700;  
 }
 
 .botton:hover {
-   color: rgb(177, 169, 169);
+   color: rgb(104, 103, 103);
 }
+
+.btn:focus {
+   box-shadow: none;
+}
+
 

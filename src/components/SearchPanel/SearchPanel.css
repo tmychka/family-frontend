@@ -3,13 +3,27 @@
 }
 
 .input {
-    width: 100%; 
-    background-color: rgb(255, 255, 255);
+    width: 25%; 
+    background-color: rgb(250, 150, 36);
     color: rgb(0, 0, 0);
     font-size: 1.2rem;
     outline: none;
     border: 0;
     position: relative;
-    top: 15px;
-    padding: 3px;
+    top: -45px;
+    left: 150px;
+    border-radius: 5px;
+    padding-left: 40px;
+}
+
+.input:hover {
+    background-color: rgb(253, 159, 18);
+}
+
+.search {
+    top: 23px;
+    left: 165px;
+    position: absolute;
+    color: #000;
+    z-index: 1000;
 }

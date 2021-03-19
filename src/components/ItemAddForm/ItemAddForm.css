@@ -4,9 +4,13 @@
 
 .item-add-form input {
    width: 100%;
-   padding-right: 20px;
-   height: 20%;
-   margin-top: 20px;
+   padding-right: 30px;
+   padding-left: 40px;
+   margin-top: 15px;
    font-size: 1.1rem;
+}
+
+.form-control:focus {
+   box-shadow: none;
 }
 

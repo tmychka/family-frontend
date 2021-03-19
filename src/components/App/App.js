@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import NavBar from '../NavBar/NavBar.js';
 import AppHeader from '../AppHeader/AppHeader';
 import ItemStatusFilter from '../ItemStatusFilter/ItemStatusFilter';
 import SearchPanel from '../SearchPanel/SearchPanel';
@@ -7,6 +8,7 @@ import TodoList from '../TodoList/TodoList';
 import ItemAddForm from '../ItemAddForm/ItemAddForm'
 
 import './App.css';
+
 
 export default class App extends Component {
 
@@ -19,7 +21,7 @@ export default class App extends Component {
            this.createTodoItem('Have a lunch')
             ],
        term: '',
-       filter: 'all' // active, all, done
+       filter: 'all', // active, all, done
      };
 
      createTodoItem(label) {
@@ -30,6 +32,18 @@ export default class App extends Component {
              id: this.maxId++
           }
       }
+    
+     onEdit = (id) => {
+
+     
+
+        this.setState(({ TodoData }) => {
+            TodoData.find((el) => el.id == id);
+                
+        
+         });
+     
+     }
 
      deleteItem = (id) => {
         this.setState(({ TodoData }) => {
@@ -114,23 +128,38 @@ export default class App extends Component {
      };
 
      render () {
-         const { TodoData, term, filter } = this.state;
+         const { TodoData, term, filter} = this.state;
          const visibleItems = this.filter(
                               this.search(TodoData, term), filter);
                               
         return (
-            <div className='todo-app'>
-                 <AppHeader />
-                 <ItemAddForm onItemAdded={this.addItem} />
-                 <ItemStatusFilter filter={filter} onFilterChange={this.onFilterChange} />
-            <div className='top-panel d-flex'>
-            </div>
-                 <TodoList
-                 todos={visibleItems}
-                 onDeleted={ this.deleteItem }
-                 onDone={ this.doneItem }
-                />
-                 <SearchPanel onSearchChange={this.onSearchChange} />
+ 
+            <div>
+                
+                     <NavBar />
+                     <SearchPanel onSearchChange={this.onSearchChange} />
+                
+                  
+              <div className='todo-app'>
+             
+                   <ItemStatusFilter
+                      filter={filter}
+                      onFilterChange={this.onFilterChange}
+                   />
+                   <AppHeader />
+                   <ItemAddForm
+                      onItemAdded={this.addItem}
+                   />
+               
+              <div className='top-panel d-flex'></div>
+                   <TodoList
+                      todos={visibleItems}
+                      onDeleted={ this.deleteItem }
+                      onDone={ this.doneItem }
+                      onEdit={this.onEdit}
+                   />
+                  
+               </div>
             </div>
          );
      };

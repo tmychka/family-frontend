@@ -30,7 +30,7 @@ export default class ItemAddForm extends Component {
                 <input type='text'
                        className='form-control'
                        onChange={this.onLabelChange}
-                       placeholder='...text'
+                       placeholder='...write task'
                        value={this.state.label}
                      />
              </form>    
